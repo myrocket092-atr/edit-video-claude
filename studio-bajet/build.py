@@ -237,30 +237,36 @@ SCENES = [("hook", 0, 4.5), ("progress", 4.35, 24.0)] + [(p["id"], p["start"], p
          [("recap", 28.33, 4.92)]
 
 # (id, file, hit_time, peak_in_file, media_start, duration, volume)
-SFX = [
-    ("s-hook-impact", "impact-bass-1", 0.0, 0.073, 0, 1.4, 0.45),
-    ("s-hook-whoosh", "whoosh-cinematic", 1.30, 2.503, 1.9, 1.5, 0.5),
-    ("s-p1-whoosh", "whoosh", 4.47, 0.162, 0, 0.57, 0.6),
-    ("s-p2-whoosh", "whoosh", 10.36, 0.162, 0, 0.57, 0.6),
-    ("s-p3-whoosh", "whoosh-cinematic", 16.03, 2.503, 1.9, 1.3, 0.45),
-    ("s-p4-whoosh", "whoosh", 21.12, 0.162, 0, 0.57, 0.6),
-    ("s-p5-whoosh", "whoosh", 25.95, 0.162, 0, 0.57, 0.6),
-    ("s-recap-whoosh", "whoosh-cinematic", 28.33, 2.503, 1.9, 1.3, 0.45),
-    ("s-riser", "riser", 33.25, 3.472, 0, 3.45, 0.3),
+# Lo-fi + ASMR mix: soft packaging foley on the hands/box shots, quiet UI ticks.
+CR, CE, RU, TH = ("asmr-crinkle", 0.687), ("asmr-cellophane", 0.373), ("asmr-rustle", 0.842), ("asmr-thud", 0.059)
+ASMR = [  # (id, sound, hit, volume)
+    ("s-hook-thud", TH, 0.0, 0.8), ("s-hook-crinkle", CR, 0.45, 0.9),
+    ("s-cut-cello", CE, 1.30, 0.9), ("s-box-rustle1", RU, 2.1, 1.1),
+    ("s-box-crinkle", CR, 2.9, 0.9), ("s-box-rustle2", RU, 3.75, 1.1),
+    ("s-p1-thud", TH, 4.47, 0.8), ("s-p2-rustle", RU, 14.1, 1.1),
+    ("s-p3-cello", CE, 16.03, 0.9), ("s-p3-crinkle", CR, 16.8, 0.9),
+    ("s-p3-thud", TH, 18.6, 0.8), ("s-p4-crinkle", CR, 21.15, 0.9),
+    ("s-p4-cello", CE, 23.1, 0.9), ("s-p4-rustle", RU, 24.2, 1.1),
+    ("s-p5-crinkle", CR, 26.0, 0.9), ("s-p5-rustle", RU, 27.0, 1.1),
+    ("s-recap-cello", CE, 28.33, 0.9), ("s-recap-thud", TH, 28.45, 0.8),
+    ("s-outro-thud", TH, 33.25, 0.8),
 ]
-# number-badge pops (badge lands ~0.3 s after scene start)
+SFX = [(eid, snd[0], hit, snd[1], 0, 2.0, vol) for eid, snd, hit, vol in ASMR]
+for pid, hit in (("p2", 10.36), ("p4", 21.12)):
+    SFX.append((f"s-{pid}-whoosh", "whoosh", hit, 0.162, 0, 0.57, 0.3))
 for p in PRODUCTS:
-    SFX.append((f"s-{p['id']}-num", "pop", p["start"] + 0.42, 0.12, 0, 0.7, 0.7))
+    SFX.append((f"s-{p['id']}-num", "pop", p["start"] + 0.42, 0.12, 0, 0.7, 0.35))
     for i, at in enumerate(p["chip_at"]):
-        f, pk, vol = (("click", 0.073, 0.9) if i % 2 == 0 else ("key-press", 0.076, 2.2))
-        SFX.append((f"s-{p['id']}-c{i + 1}", f, p["start"] + at + 0.12, pk, 0, 0.4, vol))
+        SFX.append((f"s-{p['id']}-c{i + 1}", "key-press", p["start"] + at + 0.12, 0.076, 0, 0.43, 0.9))
 for i, at in enumerate(RECAP_TICKS):
-    f, pk, vol = (("pop", 0.12, 0.7) if i % 2 == 0 else ("click", 0.073, 0.9))
-    SFX.append((f"s-recap-t{i + 1}", f, 28.33 + at + 0.1, pk, 0, 0.5, vol))
-SFX.append(("s-recap-tag", "impact-bass-1", 28.33 + 2.95, 0.073, 0, 0.9, 0.3))
+    SFX.append((f"s-recap-t{i + 1}", "key-press", 28.33 + at + 0.1, 0.076, 0, 0.43, 0.9))
+SFX.sort(key=lambda x: x[2])
+
+MUSIC = {"acoustic": ("assets/music/lofi-acoustic.mp3", 0.32), "study": ("assets/music/lofi-study.mp3", 0.42)}
+MUSIC_PICK = os.environ.get("MUSIC", "acoustic")
 
 FRAME = 1 / 30
-MEDIA_LEN = {'impact-bass-1':2.12,'impact-bass-2':2.59,'whoosh':0.57,'whoosh-cinematic':5.54,'pop':0.72,'click':0.37,'key-press':0.43,'riser':10.03,'sparkle':1.80}
+MEDIA_LEN = {'asmr-crinkle':1.4,'asmr-cellophane':1.0,'asmr-rustle':1.2,'asmr-thud':0.8,'impact-bass-1':2.12,'impact-bass-2':2.59,'whoosh':0.57,'whoosh-cinematic':5.54,'pop':0.72,'click':0.37,'key-press':0.43,'riser':10.03,'sparkle':1.80}
 
 
 def audio_tags():
@@ -272,9 +278,12 @@ def audio_tags():
             start = 0
         dur = min(dur, TOTAL - start, MEDIA_LEN[f] - ms)
         ms_attr = f' data-media-start="{ms:.3f}"' if ms else ""
-        fade = ' data-fade-out="0.25"' if f in ("riser", "whoosh-cinematic", "impact-bass-2") else ""
+        fade = ' data-fade-out="0.15"' if f.startswith("asmr") else ""
         out.append(f'      <audio id="{eid}" class="clip" src="assets/sfx/{f}.mp3" data-start="{start:.3f}" data-duration="{dur:.2f}"'
                    f'{ms_attr} data-volume="{vol}"{fade} data-track-index="{20 + n}"></audio>')
+    src, vol = MUSIC[MUSIC_PICK]
+    out.insert(0, f'      <audio id="music" class="clip" src="{src}" data-start="0" data-duration="{TOTAL}" data-volume="{vol}"'
+                  f' data-fade-in="0.2" data-fade-out="1.8" data-track-index="19"></audio>')
     return "\n".join(out)
 
 
@@ -342,7 +351,7 @@ def root_html():
     <div id="root" data-composition-id="main" data-start="0" data-duration="{TOTAL}" data-width="{W}" data-height="{H}">
       <div id="cam">
         <video id="main-video" class="clip" src="assets/footage.mp4" data-start="0" data-duration="{TOTAL}"
-          data-has-audio="true" data-volume="0.9" playsinline data-track-index="0"></video>
+          muted playsinline data-track-index="0"></video>
       </div>
       <div id="teaser-cam">
         <video id="teaser" class="clip" src="assets/footage.mp4" data-start="0" data-duration="1.3"

@@ -19,7 +19,7 @@
     <div id="root" data-composition-id="main" data-start="0" data-duration="41.1" data-width="1080" data-height="1920">
       <div id="cam">
         <video id="main-video" class="clip" src="assets/footage.mp4" data-start="0" data-duration="41.1"
-          data-has-audio="true" data-volume="0.9" playsinline data-track-index="0"></video>
+          muted playsinline data-track-index="0"></video>
       </div>
       <div id="teaser-cam">
         <video id="teaser" class="clip" src="assets/footage.mp4" data-start="0" data-duration="1.3"
@@ -34,43 +34,55 @@
       <div id="p4" data-composition-id="p4" data-composition-src="compositions/p4.html" data-start="21.0" data-duration="4.82" data-track-index="8" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:15"></div>
       <div id="p5" data-composition-id="p5" data-composition-src="compositions/p5.html" data-start="25.82" data-duration="2.51" data-track-index="9" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:16"></div>
       <div id="recap" data-composition-id="recap" data-composition-src="compositions/recap.html" data-start="28.33" data-duration="4.92" data-track-index="10" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:17"></div>
-      <audio id="s-hook-impact" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="0.000" data-duration="1.40" data-media-start="0.040" data-volume="0.45" data-track-index="20"></audio>
-      <audio id="s-hook-whoosh" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="0.730" data-duration="1.50" data-media-start="1.900" data-volume="0.5" data-fade-out="0.25" data-track-index="21"></audio>
-      <audio id="s-p1-whoosh" class="clip" src="assets/sfx/whoosh.mp3" data-start="4.341" data-duration="0.57" data-volume="0.6" data-track-index="22"></audio>
-      <audio id="s-p2-whoosh" class="clip" src="assets/sfx/whoosh.mp3" data-start="10.231" data-duration="0.57" data-volume="0.6" data-track-index="23"></audio>
-      <audio id="s-p3-whoosh" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="15.460" data-duration="1.30" data-media-start="1.900" data-volume="0.45" data-fade-out="0.25" data-track-index="24"></audio>
-      <audio id="s-p4-whoosh" class="clip" src="assets/sfx/whoosh.mp3" data-start="20.991" data-duration="0.57" data-volume="0.6" data-track-index="25"></audio>
-      <audio id="s-p5-whoosh" class="clip" src="assets/sfx/whoosh.mp3" data-start="25.821" data-duration="0.57" data-volume="0.6" data-track-index="26"></audio>
-      <audio id="s-recap-whoosh" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="27.760" data-duration="1.30" data-media-start="1.900" data-volume="0.45" data-fade-out="0.25" data-track-index="27"></audio>
-      <audio id="s-riser" class="clip" src="assets/sfx/riser.mp3" data-start="29.811" data-duration="3.45" data-volume="0.3" data-fade-out="0.25" data-track-index="28"></audio>
-      <audio id="s-p1-num" class="clip" src="assets/sfx/pop.mp3" data-start="4.683" data-duration="0.70" data-volume="0.7" data-track-index="29"></audio>
-      <audio id="s-p1-c1" class="clip" src="assets/sfx/click.mp3" data-start="6.580" data-duration="0.37" data-volume="0.9" data-track-index="30"></audio>
-      <audio id="s-p1-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="7.127" data-duration="0.40" data-volume="2.2" data-track-index="31"></audio>
-      <audio id="s-p1-c3" class="clip" src="assets/sfx/click.mp3" data-start="7.680" data-duration="0.37" data-volume="0.9" data-track-index="32"></audio>
-      <audio id="s-p1-c4" class="clip" src="assets/sfx/key-press.mp3" data-start="8.227" data-duration="0.40" data-volume="2.2" data-track-index="33"></audio>
-      <audio id="s-p2-num" class="clip" src="assets/sfx/pop.mp3" data-start="10.553" data-duration="0.70" data-volume="0.7" data-track-index="34"></audio>
-      <audio id="s-p2-c1" class="clip" src="assets/sfx/click.mp3" data-start="12.250" data-duration="0.37" data-volume="0.9" data-track-index="35"></audio>
-      <audio id="s-p2-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="12.797" data-duration="0.40" data-volume="2.2" data-track-index="36"></audio>
-      <audio id="s-p2-c3" class="clip" src="assets/sfx/click.mp3" data-start="13.350" data-duration="0.37" data-volume="0.9" data-track-index="37"></audio>
-      <audio id="s-p2-c4" class="clip" src="assets/sfx/key-press.mp3" data-start="13.897" data-duration="0.40" data-volume="2.2" data-track-index="38"></audio>
-      <audio id="s-p3-num" class="clip" src="assets/sfx/pop.mp3" data-start="16.233" data-duration="0.70" data-volume="0.7" data-track-index="39"></audio>
-      <audio id="s-p3-c1" class="clip" src="assets/sfx/click.mp3" data-start="18.780" data-duration="0.37" data-volume="0.9" data-track-index="40"></audio>
-      <audio id="s-p3-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="19.177" data-duration="0.40" data-volume="2.2" data-track-index="41"></audio>
-      <audio id="s-p3-c3" class="clip" src="assets/sfx/click.mp3" data-start="19.580" data-duration="0.37" data-volume="0.9" data-track-index="42"></audio>
-      <audio id="s-p4-num" class="clip" src="assets/sfx/pop.mp3" data-start="21.333" data-duration="0.70" data-volume="0.7" data-track-index="43"></audio>
-      <audio id="s-p4-c1" class="clip" src="assets/sfx/click.mp3" data-start="21.980" data-duration="0.37" data-volume="0.9" data-track-index="44"></audio>
-      <audio id="s-p4-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="22.527" data-duration="0.40" data-volume="2.2" data-track-index="45"></audio>
-      <audio id="s-p4-c3" class="clip" src="assets/sfx/click.mp3" data-start="23.080" data-duration="0.37" data-volume="0.9" data-track-index="46"></audio>
-      <audio id="s-p5-num" class="clip" src="assets/sfx/pop.mp3" data-start="26.153" data-duration="0.70" data-volume="0.7" data-track-index="47"></audio>
-      <audio id="s-p5-c1" class="clip" src="assets/sfx/click.mp3" data-start="26.300" data-duration="0.37" data-volume="0.9" data-track-index="48"></audio>
-      <audio id="s-p5-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="26.597" data-duration="0.40" data-volume="2.2" data-track-index="49"></audio>
-      <audio id="s-p5-c3" class="clip" src="assets/sfx/click.mp3" data-start="26.900" data-duration="0.37" data-volume="0.9" data-track-index="50"></audio>
-      <audio id="s-recap-t1" class="clip" src="assets/sfx/pop.mp3" data-start="28.893" data-duration="0.50" data-volume="0.7" data-track-index="51"></audio>
-      <audio id="s-recap-t2" class="clip" src="assets/sfx/click.mp3" data-start="29.390" data-duration="0.37" data-volume="0.9" data-track-index="52"></audio>
-      <audio id="s-recap-t3" class="clip" src="assets/sfx/pop.mp3" data-start="29.793" data-duration="0.50" data-volume="0.7" data-track-index="53"></audio>
-      <audio id="s-recap-t4" class="clip" src="assets/sfx/click.mp3" data-start="30.290" data-duration="0.37" data-volume="0.9" data-track-index="54"></audio>
-      <audio id="s-recap-t5" class="clip" src="assets/sfx/pop.mp3" data-start="30.693" data-duration="0.50" data-volume="0.7" data-track-index="55"></audio>
-      <audio id="s-recap-tag" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="31.240" data-duration="0.90" data-volume="0.3" data-track-index="56"></audio>
+      <audio id="music" class="clip" src="assets/music/lofi-acoustic.mp3" data-start="0" data-duration="41.1" data-volume="0.32" data-fade-in="0.2" data-fade-out="1.8" data-track-index="19"></audio>
+      <audio id="s-hook-thud" class="clip" src="assets/sfx/asmr-thud.mp3" data-start="0.000" data-duration="0.77" data-media-start="0.026" data-volume="0.8" data-fade-out="0.15" data-track-index="20"></audio>
+      <audio id="s-hook-crinkle" class="clip" src="assets/sfx/asmr-crinkle.mp3" data-start="0.000" data-duration="1.20" data-media-start="0.204" data-volume="0.9" data-fade-out="0.15" data-track-index="21"></audio>
+      <audio id="s-cut-cello" class="clip" src="assets/sfx/asmr-cellophane.mp3" data-start="0.960" data-duration="1.00" data-volume="0.9" data-fade-out="0.15" data-track-index="22"></audio>
+      <audio id="s-box-rustle1" class="clip" src="assets/sfx/asmr-rustle.mp3" data-start="1.291" data-duration="1.20" data-volume="1.1" data-fade-out="0.15" data-track-index="23"></audio>
+      <audio id="s-box-crinkle" class="clip" src="assets/sfx/asmr-crinkle.mp3" data-start="2.246" data-duration="1.40" data-volume="0.9" data-fade-out="0.15" data-track-index="24"></audio>
+      <audio id="s-box-rustle2" class="clip" src="assets/sfx/asmr-rustle.mp3" data-start="2.941" data-duration="1.20" data-volume="1.1" data-fade-out="0.15" data-track-index="25"></audio>
+      <audio id="s-p1-thud" class="clip" src="assets/sfx/asmr-thud.mp3" data-start="4.444" data-duration="0.80" data-volume="0.8" data-fade-out="0.15" data-track-index="26"></audio>
+      <audio id="s-p1-num" class="clip" src="assets/sfx/pop.mp3" data-start="4.683" data-duration="0.70" data-volume="0.35" data-track-index="27"></audio>
+      <audio id="s-p1-c1" class="clip" src="assets/sfx/key-press.mp3" data-start="6.577" data-duration="0.43" data-volume="0.9" data-track-index="28"></audio>
+      <audio id="s-p1-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="7.127" data-duration="0.43" data-volume="0.9" data-track-index="29"></audio>
+      <audio id="s-p1-c3" class="clip" src="assets/sfx/key-press.mp3" data-start="7.677" data-duration="0.43" data-volume="0.9" data-track-index="30"></audio>
+      <audio id="s-p1-c4" class="clip" src="assets/sfx/key-press.mp3" data-start="8.227" data-duration="0.43" data-volume="0.9" data-track-index="31"></audio>
+      <audio id="s-p2-whoosh" class="clip" src="assets/sfx/whoosh.mp3" data-start="10.231" data-duration="0.57" data-volume="0.3" data-track-index="32"></audio>
+      <audio id="s-p2-num" class="clip" src="assets/sfx/pop.mp3" data-start="10.553" data-duration="0.70" data-volume="0.35" data-track-index="33"></audio>
+      <audio id="s-p2-c1" class="clip" src="assets/sfx/key-press.mp3" data-start="12.247" data-duration="0.43" data-volume="0.9" data-track-index="34"></audio>
+      <audio id="s-p2-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="12.797" data-duration="0.43" data-volume="0.9" data-track-index="35"></audio>
+      <audio id="s-p2-c3" class="clip" src="assets/sfx/key-press.mp3" data-start="13.347" data-duration="0.43" data-volume="0.9" data-track-index="36"></audio>
+      <audio id="s-p2-c4" class="clip" src="assets/sfx/key-press.mp3" data-start="13.897" data-duration="0.43" data-volume="0.9" data-track-index="37"></audio>
+      <audio id="s-p2-rustle" class="clip" src="assets/sfx/asmr-rustle.mp3" data-start="13.291" data-duration="1.20" data-volume="1.1" data-fade-out="0.15" data-track-index="38"></audio>
+      <audio id="s-p3-cello" class="clip" src="assets/sfx/asmr-cellophane.mp3" data-start="15.690" data-duration="1.00" data-volume="0.9" data-fade-out="0.15" data-track-index="39"></audio>
+      <audio id="s-p3-num" class="clip" src="assets/sfx/pop.mp3" data-start="16.233" data-duration="0.70" data-volume="0.35" data-track-index="40"></audio>
+      <audio id="s-p3-crinkle" class="clip" src="assets/sfx/asmr-crinkle.mp3" data-start="16.146" data-duration="1.40" data-volume="0.9" data-fade-out="0.15" data-track-index="41"></audio>
+      <audio id="s-p3-thud" class="clip" src="assets/sfx/asmr-thud.mp3" data-start="18.574" data-duration="0.80" data-volume="0.8" data-fade-out="0.15" data-track-index="42"></audio>
+      <audio id="s-p3-c1" class="clip" src="assets/sfx/key-press.mp3" data-start="18.777" data-duration="0.43" data-volume="0.9" data-track-index="43"></audio>
+      <audio id="s-p3-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="19.177" data-duration="0.43" data-volume="0.9" data-track-index="44"></audio>
+      <audio id="s-p3-c3" class="clip" src="assets/sfx/key-press.mp3" data-start="19.577" data-duration="0.43" data-volume="0.9" data-track-index="45"></audio>
+      <audio id="s-p4-whoosh" class="clip" src="assets/sfx/whoosh.mp3" data-start="20.991" data-duration="0.57" data-volume="0.3" data-track-index="46"></audio>
+      <audio id="s-p4-crinkle" class="clip" src="assets/sfx/asmr-crinkle.mp3" data-start="20.496" data-duration="1.40" data-volume="0.9" data-fade-out="0.15" data-track-index="47"></audio>
+      <audio id="s-p4-num" class="clip" src="assets/sfx/pop.mp3" data-start="21.333" data-duration="0.70" data-volume="0.35" data-track-index="48"></audio>
+      <audio id="s-p4-c1" class="clip" src="assets/sfx/key-press.mp3" data-start="21.977" data-duration="0.43" data-volume="0.9" data-track-index="49"></audio>
+      <audio id="s-p4-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="22.527" data-duration="0.43" data-volume="0.9" data-track-index="50"></audio>
+      <audio id="s-p4-cello" class="clip" src="assets/sfx/asmr-cellophane.mp3" data-start="22.760" data-duration="1.00" data-volume="0.9" data-fade-out="0.15" data-track-index="51"></audio>
+      <audio id="s-p4-c3" class="clip" src="assets/sfx/key-press.mp3" data-start="23.077" data-duration="0.43" data-volume="0.9" data-track-index="52"></audio>
+      <audio id="s-p4-rustle" class="clip" src="assets/sfx/asmr-rustle.mp3" data-start="23.391" data-duration="1.20" data-volume="1.1" data-fade-out="0.15" data-track-index="53"></audio>
+      <audio id="s-p5-crinkle" class="clip" src="assets/sfx/asmr-crinkle.mp3" data-start="25.346" data-duration="1.40" data-volume="0.9" data-fade-out="0.15" data-track-index="54"></audio>
+      <audio id="s-p5-num" class="clip" src="assets/sfx/pop.mp3" data-start="26.153" data-duration="0.70" data-volume="0.35" data-track-index="55"></audio>
+      <audio id="s-p5-c1" class="clip" src="assets/sfx/key-press.mp3" data-start="26.297" data-duration="0.43" data-volume="0.9" data-track-index="56"></audio>
+      <audio id="s-p5-c2" class="clip" src="assets/sfx/key-press.mp3" data-start="26.597" data-duration="0.43" data-volume="0.9" data-track-index="57"></audio>
+      <audio id="s-p5-c3" class="clip" src="assets/sfx/key-press.mp3" data-start="26.897" data-duration="0.43" data-volume="0.9" data-track-index="58"></audio>
+      <audio id="s-p5-rustle" class="clip" src="assets/sfx/asmr-rustle.mp3" data-start="26.191" data-duration="1.20" data-volume="1.1" data-fade-out="0.15" data-track-index="59"></audio>
+      <audio id="s-recap-cello" class="clip" src="assets/sfx/asmr-cellophane.mp3" data-start="27.990" data-duration="1.00" data-volume="0.9" data-fade-out="0.15" data-track-index="60"></audio>
+      <audio id="s-recap-thud" class="clip" src="assets/sfx/asmr-thud.mp3" data-start="28.424" data-duration="0.80" data-volume="0.8" data-fade-out="0.15" data-track-index="61"></audio>
+      <audio id="s-recap-t1" class="clip" src="assets/sfx/key-press.mp3" data-start="28.937" data-duration="0.43" data-volume="0.9" data-track-index="62"></audio>
+      <audio id="s-recap-t2" class="clip" src="assets/sfx/key-press.mp3" data-start="29.387" data-duration="0.43" data-volume="0.9" data-track-index="63"></audio>
+      <audio id="s-recap-t3" class="clip" src="assets/sfx/key-press.mp3" data-start="29.837" data-duration="0.43" data-volume="0.9" data-track-index="64"></audio>
+      <audio id="s-recap-t4" class="clip" src="assets/sfx/key-press.mp3" data-start="30.287" data-duration="0.43" data-volume="0.9" data-track-index="65"></audio>
+      <audio id="s-recap-t5" class="clip" src="assets/sfx/key-press.mp3" data-start="30.737" data-duration="0.43" data-volume="0.9" data-track-index="66"></audio>
+      <audio id="s-outro-thud" class="clip" src="assets/sfx/asmr-thud.mp3" data-start="33.224" data-duration="0.80" data-volume="0.8" data-fade-out="0.15" data-track-index="67"></audio>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
