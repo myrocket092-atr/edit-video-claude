@@ -234,7 +234,7 @@ CTA_JS = """    tl.fromTo("#cta-h", { opacity: 0, scale: 1.8 }, { opacity: 1, sc
 
 # ---------------------------------------------------------------- root
 SCENES = [("hook", 0, 4.5), ("progress", 4.35, 24.0)] + [(p["id"], p["start"], p["dur"]) for p in PRODUCTS] + \
-         [("recap", 28.33, 4.92), ("cta", 33.25, 7.85)]
+         [("recap", 28.33, 4.92)]
 
 # (id, file, hit_time, peak_in_file, media_start, duration, volume)
 SFX = [
@@ -247,9 +247,6 @@ SFX = [
     ("s-p5-whoosh", "whoosh", 25.95, 0.162, 0, 0.57, 0.6),
     ("s-recap-whoosh", "whoosh-cinematic", 28.33, 2.503, 1.9, 1.3, 0.45),
     ("s-riser", "riser", 33.25, 3.472, 0, 3.45, 0.3),
-    ("s-cta-impact", "impact-bass-2", 33.25, 1.986, 1.8, 1.3, 0.4),
-    ("s-cta-sparkle", "sparkle", 33.25 + 1.05, 0.027, 0, 1.6, 0.4),
-    ("s-cta-save", "pop", 33.25 + 3.75, 0.12, 0, 0.7, 0.8),
 ]
 # number-badge pops (badge lands ~0.3 s after scene start)
 for p in PRODUCTS:
@@ -371,8 +368,7 @@ os.makedirs(f"{OUT}/compositions", exist_ok=True)
 files = {"index.html": root_html(),
          "compositions/hook.html": scene("hook", 4.5, HOOK_CSS, HOOK_BODY, HOOK_JS),
          "compositions/progress.html": progress_scene(),
-         "compositions/recap.html": recap_scene(),
-         "compositions/cta.html": scene("cta", 7.85, CTA_CSS, CTA_BODY, CTA_JS)}
+         "compositions/recap.html": recap_scene()}
 for p in PRODUCTS:
     files[f"compositions/{p['id']}.html"] = product_scene(p)
 for k, v in files.items():
