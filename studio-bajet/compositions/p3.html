@@ -1,0 +1,52 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Inter, sans-serif; }
+    .lcw { position: absolute; left: 0; right: 0; display: flex; justify-content: center; }
+    .lc { display: flex; align-items: center; gap: 28px; background: #0b0b0b; border-radius: 30px;
+           padding: 24px 48px 24px 24px; min-width: 840px; border: 4px solid #FFD400;
+           box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+    .num { width: 150px; height: 150px; border-radius: 24px; background: #FFD400; color: #0b0b0b;
+            font-family: 'Archivo Black'; font-size: 80px; display: flex; align-items: center;
+            justify-content: center; flex: none; }
+    .cat { font-weight: 900; font-size: 30px; letter-spacing: .12em; color: #FFD400; }
+    .name { font-family: 'Archivo Black'; font-size: 84px; line-height: 1; color: #fff; margin-top: 10px; }
+    .chipw { position: absolute; left: 56px; right: 56px; }
+    .chip { display: inline-flex; align-items: center; gap: 20px; background: rgba(11,11,11,.9);
+             border-radius: 22px; padding: 16px 32px 16px 16px; font-weight: 700; font-size: 39px;
+             color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+    .chip b { color: #FFD400; font-weight: 900; }
+    .tick { width: 60px; height: 60px; border-radius: 16px; background: #FFD400; display: flex;
+             align-items: center; justify-content: center; flex: none; }
+
+  </style>
+  <div id="root" data-composition-id="p3" data-width="1080" data-height="1920" data-duration="5.1">
+    <div id="p3-card" class="lcw clip" data-start="0" data-duration="2.88" data-track-index="0" style="top:1071px">
+      <div id="p3-card-in" class="lc">
+        <div id="p3-num" class="num">03</div>
+        <div><div class="cat" data-var-text="p3-cat">DYNAMIC MIC · MISHA</div><div class="name" data-var-text="p3-name">MA-990</div></div>
+      </div>
+    </div>
+    <div id="p3-c1" class="chipw clip" data-start="2.8" data-duration="2.30" data-track-index="1" style="top:1000px">
+      <div id="p3-c1-in" class="chip"><span class="tick"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0b0b0b" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Dinamik</b> — kurang tangkap noise bilik</span></div>
+    </div>
+    <div id="p3-c2" class="chipw clip" data-start="3.2" data-duration="1.90" data-track-index="2" style="top:1100px">
+      <div id="p3-c2-in" class="chip"><span class="tick"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0b0b0b" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Ada <b>suis ON/OFF</b> pada badan</span></div>
+    </div>
+    <div id="p3-c3" class="chipw clip" data-start="3.6" data-duration="1.50" data-track-index="3" style="top:1200px">
+      <div id="p3-c3-in" class="chip"><span class="tick"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0b0b0b" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Sesuai <b>vokal, podcast &amp; live</b></span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#p3-card-in", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.12, ease: "back.out(2)" }, 0);
+    tl.fromTo("#p3-num", { rotation: -18, scale: 0.6 }, { rotation: 0, scale: 1, duration: 0.35, ease: "back.out(3)" }, 0.12);
+    tl.to("#p3-card-in", { opacity: 0, y: -24, duration: 0.15, ease: "power2.in" }, 2.68);
+    tl.fromTo("#p3-c1-in", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 2.8);
+    tl.to("#p3-c1-in", { opacity: 0, x: 40, duration: 0.18, ease: "power2.in" }, 4.90);
+    tl.fromTo("#p3-c2-in", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 3.2);
+    tl.to("#p3-c2-in", { opacity: 0, x: 40, duration: 0.18, ease: "power2.in" }, 4.94);
+    tl.fromTo("#p3-c3-in", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out" }, 3.6);
+    tl.to("#p3-c3-in", { opacity: 0, x: 40, duration: 0.18, ease: "power2.in" }, 4.98);
+    window.__timelines["p3"] = tl;
+  </script>
+</template>

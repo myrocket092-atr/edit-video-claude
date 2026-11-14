@@ -1,0 +1,60 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Inter, sans-serif; }
+    .lcw { position: absolute; left: 0; right: 0; display: flex; justify-content: center; }
+    .lc { display: flex; align-items: center; gap: 28px; background: #0b0b0b; border-radius: 30px;
+           padding: 24px 48px 24px 24px; min-width: 840px; border: 4px solid #FFD400;
+           box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+    .num { width: 150px; height: 150px; border-radius: 24px; background: #FFD400; color: #0b0b0b;
+            font-family: 'Archivo Black'; font-size: 80px; display: flex; align-items: center;
+            justify-content: center; flex: none; }
+    .cat { font-weight: 900; font-size: 30px; letter-spacing: .12em; color: #FFD400; }
+    .name { font-family: 'Archivo Black'; font-size: 84px; line-height: 1; color: #fff; margin-top: 10px; }
+    .chipw { position: absolute; left: 56px; right: 56px; }
+    .chip { display: inline-flex; align-items: center; gap: 20px; background: rgba(11,11,11,.9);
+             border-radius: 22px; padding: 16px 32px 16px 16px; font-weight: 700; font-size: 39px;
+             color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+    .chip b { color: #FFD400; font-weight: 900; }
+    .tick { width: 60px; height: 60px; border-radius: 16px; background: #FFD400; display: flex;
+             align-items: center; justify-content: center; flex: none; }
+
+    .hk { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; }
+    .ha1 { font-family: 'Archivo Black'; font-size: 88px; color: #fff; line-height: 1.05;
+            text-shadow: 0 6px 0 #000, 0 0 30px rgba(0,0,0,.7); }
+    .ha2 { font-family: 'Archivo Black'; font-size: 112px; color: #0b0b0b; background: #FFD400;
+            padding: 6px 34px 14px; border-radius: 22px; margin-top: 18px; line-height: 1.05; }
+    .hb1 { width: 880px; text-align: center; font-family: 'Archivo Black'; font-size: 92px; color: #fff;
+            background: #0b0b0b; padding: 18px 0 14px; border-radius: 26px 26px 0 0; line-height: 1; }
+    .hb2 { width: 880px; text-align: center; font-family: 'Archivo Black'; font-size: 176px; color: #0b0b0b;
+            background: #FFD400; padding: 4px 0 16px; border-radius: 0 0 26px 26px; line-height: 1; }
+    .hb3 { margin-top: 26px; font-weight: 900; font-size: 46px; color: #fff; background: rgba(11,11,11,.9);
+            padding: 14px 34px; border-radius: 999px; letter-spacing: .04em; }
+    .hb3 b { color: #FFD400; }
+
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920" data-duration="4.5">
+    <div id="hook-a" class="hk clip" data-start="0" data-duration="1.3" data-track-index="0" style="top:640px">
+      <div id="hook-a1" class="ha1" data-var-text="hook-line-1">NAK REKOD LAGU</div>
+      <div id="hook-a2" class="ha2" data-var-text="hook-line-2">DARI RUMAH?</div>
+    </div>
+    <div id="hook-b" class="hk clip" data-start="1.3" data-duration="3.2" data-track-index="1" style="top:196px">
+      <div id="hook-b1" class="hb1" data-var-text="hook-title">HOME STUDIO</div>
+      <div id="hook-b2" class="hb2" data-var-text="hook-bajet">BAJET</div>
+    </div>
+    <div id="hook-c" class="hk clip" data-start="2.2" data-duration="2.3" data-track-index="2" style="top:600px">
+      <div id="hook-c1" class="hb3"><b>5 BARANG</b> JE CUKUP ↓</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hook-a1", { scale: 1.12, y: -10 }, { scale: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+    tl.fromTo("#hook-a2", { scale: 1.25, rotation: -4 }, { scale: 1, rotation: -2, duration: 0.4, ease: "back.out(2.5)" }, 0);
+    tl.to("#hook-a2", { scale: 1.06, duration: 0.5, ease: "sine.inOut" }, 0.55);
+    tl.fromTo("#hook-b1", { y: -40, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.1, ease: "power2.out" }, 1.3);
+    tl.fromTo("#hook-b2", { scale: 1.3 }, { scale: 1, duration: 0.32, ease: "back.out(2.2)" }, 1.3);
+    tl.fromTo("#hook-c1", { opacity: 0, y: 30, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(2)" }, 2.2);
+    tl.to("#hook-c1", { y: 10, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 3 }, 2.6);
+    tl.to("#hook-c1", { opacity: 0, duration: 0.12 }, 4.33);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>
