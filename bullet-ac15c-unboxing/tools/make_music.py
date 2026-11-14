@@ -61,12 +61,16 @@ def place(buf, x, at):
     return buf
 
 
-def room_ir(dur=0.7, pre=0.012, damp=6.0):
+def room_ir(dur=1.3, pre=0.018, damp=3.6):
+    """small music shop: early reflections off walls/shelves + a soft diffuse tail"""
     n = int(dur * SR)
     t = np.arange(n) / SR
-    ir = rng.standard_normal((n, 2)) * np.exp(-damp * t)[:, None]
-    ir = filt(ir, "low", 4500)
+    ir = rng.standard_normal((n, 2)) * np.exp(-damp * t)[:, None] * 0.6
+    ir = filt(ir, "low", 3800)
     ir[: int(pre * SR)] = 0
+    for (d, g) in ((0.011, 0.55), (0.017, 0.42), (0.023, 0.35), (0.031, 0.3), (0.043, 0.22)):
+        ir[int(d * SR), 0] += g
+        ir[int((d + 0.003) * SR), 1] += g * 0.9
     ir[0] = 1.0
     return ir
 
@@ -216,12 +220,12 @@ voice = np.concatenate([lead, v, np.zeros(int(0.7 * SR))])
 voice = filt(voice, "high", 110)                      # SM58-ish proximity cut
 voice = biquad_peak(voice, 4500, 4, 1.2)              # presence bump
 voice = amp_chain(voice, drive=1.8)
-voice = reverb(voice, mix=0.22, dur=0.8, damp=5.0)    # small shop room
+voice = reverb(voice, mix=0.26)                       # small shop room
 save("mic-check.wav", voice, -2)
 
 # 2) first strum after plugging in ------------------------------------------
 g = strum("G", dur=2.4, vel=1.0)
-g = reverb(amp_chain(g, 1.2), mix=0.15)
+g = reverb(amp_chain(g, 1.2), mix=0.3)
 save("gtr-strum.wav", g, -3)
 
 # 3) knob tweak demo (3.4 s): vol up @0.1, bass @0.9, chorus @1.7, speed @2.3 --------
@@ -236,19 +240,19 @@ bass_amt = np.clip((t - 0.9) / 0.4, 0, 1)
 ch_amt = np.clip((t - 1.7) / 0.15, 0, 1)
 bassy = low_shelf(dry, 180, 7.0)
 y = dry * (1 - bass_amt) + bassy * bass_amt
-slow = chorus(y, rate=0.7)
-fast = chorus(y, rate=3.2, depth_ms=3.2)
+slow = chorus(y, rate=0.7, depth_ms=1.4, mix=0.2)
+fast = chorus(y, rate=2.2, depth_ms=1.6, mix=0.22)
 sp = np.clip((t - 2.3) / 0.4, 0, 1)[:, None]
 wet = slow * (1 - sp) + fast * sp
 y2 = np.stack([y, y], 1) * (1 - ch_amt[:, None]) + wet * ch_amt[:, None]
 y2 *= vol[:, None]
-save("gtr-tweak.wav", reverb(y2, mix=0.14), -3)
+save("gtr-tweak.wav", reverb(y2, mix=0.28), -3)
 
 # 4) "cuba sikit" strum pattern with chorus (3.4 s) ---------------------------
 tr = strum_pattern(["G", "D"], bpm=100, total=3.6)
 tr = amp_chain(low_shelf(tr, 180, 3.0), 1.3)
-tr = chorus(tr, rate=0.9, mix=0.4)
-save("gtr-try.wav", reverb(tr, mix=0.16), -3)
+tr = chorus(tr, rate=0.8, depth_ms=1.4, mix=0.16)
+save("gtr-try.wav", reverb(tr, mix=0.3), -3)
 
 # 5) phone backing track + live guitar (8.6 s) --------------------------------
 BPM = 92
@@ -301,9 +305,9 @@ backing = amp_chain(backing * 0.8, 1.1)
 live = strum_pattern(prog * 2, bpm=BPM, total=T, start=0.8 + 4 * beat * 0)  # guitar joins after ~0.8 s
 live[: int(0.8 * SR)] = 0
 live = amp_chain(low_shelf(live, 180, 3.0), 1.3)
-live = chorus(live, rate=0.9, mix=0.35)
+live = chorus(live, rate=0.8, depth_ms=1.4, mix=0.14)
 mix = np.stack([backing, backing], 1) * 0.75 + live * 0.6
 fade = np.ones(n)
 fade[-int(1.6 * SR):] = np.linspace(1, 0, int(1.6 * SR)) ** 1.5
 mix *= fade[:, None]
-save("jam-mix.wav", reverb(mix, mix=0.12), -2)
+save("jam-mix.wav", reverb(mix, mix=0.22), -2)

@@ -44,31 +44,7 @@
 
       /* ---------- S1 · real-looking box in the shop ---------- */
       #s1bg { filter: blur(2px) brightness(0.82) saturate(0.95); transform-origin: 50% 60%; }
-      #boxwrap { position: absolute; inset: 0; transform-origin: 560px 860px; }
-      .tex { background-image: url(assets/img/kraft.png); background-size: 900px 750px; }
-      #bx-shadow { position: absolute; left: 40px; top: 1440px; width: 1040px; height: 150px; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0) 72%); }
-      #bx-side { clip-path: polygon(870px 860px, 990px 770px, 990px 1400px, 870px 1500px); }
-      #bx-side .light { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,10,4,0.55), rgba(20,10,4,0.38)); }
-      #bx-front { position: absolute; left: 90px; top: 860px; width: 780px; height: 640px; overflow: hidden; }
-      #bx-front .light { position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255,230,190,0.18) 0%, rgba(0,0,0,0) 40%, rgba(20,10,4,0.32) 100%), linear-gradient(0deg, rgba(10,5,2,0.35) 0%, rgba(0,0,0,0) 25%); }
-      #bx-inside { clip-path: polygon(90px 860px, 870px 860px, 990px 770px, 210px 770px); background-image: url(assets/img/inside.png); background-size: 900px 90px; background-position: 90px 770px; filter: brightness(0.9); }
-      #bx-flapF { clip-path: polygon(90px 860px, 870px 860px, 930px 815px, 150px 815px); }
-      #bx-flapF .light { position: absolute; inset: 0; background: rgba(255,235,200,0.12); }
-      #bx-flapB { clip-path: polygon(150px 815px, 930px 815px, 990px 770px, 210px 770px); }
-      #bx-flapB .light { position: absolute; inset: 0; background: rgba(255,235,200,0.06); }
-      #bx-tape { clip-path: polygon(445px 860px, 515px 860px, 635px 770px, 565px 770px); background: linear-gradient(90deg, rgba(150,120,80,0.55), rgba(235,215,175,0.62) 45%, rgba(160,130,90,0.55)); }
-      #bx-slit { clip-path: polygon(478px 860px, 482px 860px, 602px 770px, 598px 770px); background: rgba(40,25,12,0.9); opacity: 0; }
-      #bx-tapeF { position: absolute; left: 445px; top: 860px; width: 70px; height: 120px; background: linear-gradient(90deg, rgba(150,120,80,0.55), rgba(235,215,175,0.62) 45%, rgba(160,130,90,0.55)); transform-origin: 50% 0%; }
-      #bx-edge { clip-path: polygon(90px 858px, 870px 858px, 870px 864px, 90px 864px); background: rgba(40,24,12,0.45); }
-      .print { position: absolute; color: #3a2414; mix-blend-mode: multiply; opacity: 0.88; }
-      #bx-front .logo { left: 0; right: 0; top: 150px; text-align: center; font-family: var(--font-script); font-style: italic; font-weight: 700; font-size: 150px; letter-spacing: -0.01em; }
-      #bx-front .model { left: 0; right: 0; top: 345px; text-align: center; font-family: var(--font-mono); font-weight: 800; font-size: 40px; letter-spacing: 0.28em; }
-      #bx-front .model2 { left: 0; right: 0; top: 410px; text-align: center; font-family: var(--font-mono); font-size: 22px; letter-spacing: 0.2em; }
-      #bx-front .arrows { left: 36px; top: 36px; font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.12em; }
-      #bx-front .fragile { right: 36px; top: 30px; font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.12em; border: 2px solid #3a2414; padding: 4px 10px; }
-      #bx-front .glass { left: 36px; bottom: 36px; font-family: var(--font-mono); font-size: 20px; letter-spacing: 0.1em; }
-      #bx-label { position: absolute; left: 895px; top: 1140px; width: 70px; height: 150px; background: #efece4; transform: skewY(-37deg); box-shadow: 0 2px 6px rgba(0,0,0,0.3); opacity: 0.85; }
-      #bx-label i { position: absolute; left: 10px; right: 10px; top: 20px; bottom: 40px; background: repeating-linear-gradient(0deg, #222 0 2px, transparent 2px 4px, #222 4px 5px, transparent 5px 8px); }
+      #boxCanvas { position: absolute; inset: 0; width: 1080px; height: 1920px; }
       #s1 .hook { position: absolute; left: 120px; right: 192px; top: 420px; }
       #s1 .hook h1 { font-size: 80px; font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin-top: 18px; text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
       #s1 .hook h1 em { font-style: normal; color: var(--amber); }
@@ -153,27 +129,7 @@
       <!-- ===== S1 · box in the shop (0 – 3.2) ===== -->
       <section id="s1" class="clip" data-start="0" data-duration="3.2" data-track-index="1">
         <img id="s1bg" class="cover" src="assets/img/front.jpg" alt="" />
-        <div id="boxwrap">
-          <div id="bx-shadow"></div>
-          <div class="ff" id="bx-inside"></div>
-          <div class="ff tex" id="bx-flapB"><div class="light"></div></div>
-          <div class="ff tex" id="bx-side"><div class="light"></div></div>
-          <div id="bx-label"><i></i></div>
-          <div class="tex" id="bx-front">
-            <div class="print arrows" data-layout-ignore>▲▲ THIS SIDE UP</div>
-            <div class="print fragile" data-layout-ignore>FRAGILE</div>
-            <div class="print logo" data-layout-ignore>Bullet</div>
-            <div class="print model" data-layout-ignore>AC-15C</div>
-            <div class="print model2" data-layout-ignore>ACOUSTIC AMPLIFIER · 15W</div>
-            <div class="print glass" data-layout-ignore>MIC + GUITAR · CHORUS · BLUETOOTH</div>
-            <div class="light"></div>
-          </div>
-          <div class="ff tex" id="bx-flapF"><div class="light"></div></div>
-          <div class="ff" id="bx-tape"></div>
-          <div class="ff" id="bx-slit"></div>
-          <div id="bx-tapeF"></div>
-          <div class="ff" id="bx-edge"></div>
-        </div>
+        <canvas id="boxCanvas"></canvas>
         <div class="shade-top"></div>
         <div class="hook">
           <div class="eyebrow">Unboxing · ASMR</div>
@@ -209,14 +165,6 @@
           <div class="ring" id="ringMic" style="left:357px; top:343px"><i></i></div>
           <div class="ring" id="ringGtr" style="left:487px; top:480px"><i></i></div>
         </div>
-        <!-- soft shadow of fingers turning knobs -->
-        <svg class="handshadow" id="shHand" viewBox="0 0 400 400" style="left:0; top:0; width:440px; height:440px">
-          <g fill="#000">
-            <path d="M40 40 C 60 20 110 30 120 70 L 150 150 C 150 170 130 180 115 165 L 60 95 C 45 75 30 55 40 40 Z"/>
-            <path d="M20 120 C 25 100 60 100 75 120 L 120 175 C 130 190 115 205 100 198 L 35 150 C 22 140 18 130 20 120 Z"/>
-            <path d="M100 150 C 160 110 260 140 300 220 C 340 300 330 380 300 420 L 140 420 C 110 360 80 300 90 220 Z"/>
-          </g>
-        </svg>
         <div class="shade-bottom"></div>
         <div class="card" id="cardGtr">
           <div class="eyebrow">Input 2</div>
@@ -375,16 +323,7 @@
 
       // ---------- S1 · box (0 – 3.2) ----------
       tl.from("#s1 .hook > *", { y: 40, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power3.out" }, 0.05);
-      tl.fromTo("#s1bg", { scale: 1.06 }, { scale: 1.0, duration: 2.4, ease: "sine.out" }, 0);
-      tl.fromTo("#boxwrap", { scale: 1.04, y: 10 }, { scale: 1.0, y: 0, duration: 2.2, ease: "sine.out" }, 0);
-      tl.fromTo("#bx-slit", { opacity: 0, scaleY: 0, transformOrigin: "480px 860px" }, { opacity: 1, scaleY: 1, duration: 0.4, ease: "power1.inOut" }, 0.45);
-      tl.to(["#bx-tape", "#bx-slit"], { scaleY: 0, opacity: 0, transformOrigin: "600px 770px", duration: 0.3, ease: "power2.in" }, 0.88);
-      tl.to("#bx-tapeF", { scaleY: 0, opacity: 0, duration: 0.25, ease: "power2.in" }, 0.85);
-      tl.to("#bx-flapF", { scaleY: -1.35, transformOrigin: "480px 860px", filter: "brightness(0.7)", duration: 0.5, ease: "back.out(1.3)" }, 1.12);
-      tl.to("#bx-flapB", { scaleY: -3.6, transformOrigin: "600px 770px", filter: "brightness(0.85)", duration: 0.5, ease: "back.out(1.3)" }, 1.42);
-      tl.fromTo("#bx-inside", { filter: "brightness(0.6)" }, { filter: "brightness(1.05)", duration: 0.6 }, 1.5);
-      tl.to("#s1 .hook", { opacity: 0, y: -40, duration: 0.4, ease: "power2.in" }, 2.2);
-      tl.to("#boxwrap", { scale: 3.0, y: 260, duration: 0.7, ease: "power3.in" }, 2.5);
+      tl.to("#s1 .hook", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, 1.3);
       tl.to("#s1bg", { scale: 1.5, filter: "blur(14px) brightness(0.6)", duration: 0.7, ease: "power3.in" }, 2.5);
 
       // ---------- S2 · hero (3.0 – 5.6): the amp sits where the box was ----------
@@ -430,10 +369,6 @@
       // knobs: vol, bass, chorus, speed (screen positions at this framing:
       // vol(325,405) bass(420,510) chorus(660,890) speed(775,930))
       tl.to("#cam3", { ...cam(690, 640, 1.5), duration: 0.55, ease: "power3.inOut" }, 12.4);
-      const HAND = [[13.0, 325, 405], [13.8, 420, 510], [14.6, 660, 890], [15.2, 775, 930]];
-      tl.fromTo("#shHand", { opacity: 0, x: 480, y: 620 }, { opacity: 0.6, x: HAND[0][1] - 20, y: HAND[0][2] - 20, duration: 0.45, ease: "power2.out" }, 12.55);
-      HAND.slice(1).forEach(([t, x, y]) => tl.to("#shHand", { x: x - 20, y: y - 20, duration: 0.4, ease: "power2.inOut" }, t - 0.42));
-      tl.to("#shHand", { opacity: 0, x: "+=200", y: "+=200", duration: 0.5, ease: "power2.in" }, 15.9);
       tl.fromTo("#kVol", { rotation: -20 }, { rotation: 25, duration: 0.5, ease: "power2.out" }, 13.0);
       tl.fromTo("#kBass", { rotation: -15 }, { rotation: 30, duration: 0.5, ease: "power2.out" }, 13.8);
       tl.fromTo("#kChorus", { scale: 1 }, { scale: 0.86, duration: 0.08, yoyo: true, repeat: 1 }, 14.58);
@@ -491,7 +426,9 @@
       import { createMic } from "./assets/js/mic3d.js";
       import { createGuitar, strumHits } from "./assets/js/guitar3d.js";
       import { MIC_ENV } from "./assets/js/mic-env.js";
+      import { createBox } from "./assets/js/box3d.js";
 
+      const box = await createBox(document.getElementById("boxCanvas"));
       const plugs = createPlugs(document.getElementById("plugCanvas"), { width: 650, height: 620, pixelRatio: 2.4, xlr: [357, 343], jack: [487, 480], tiltDeg: 33, rollDeg: -14 });
       const mic = createMic(document.getElementById("micCanvas"));
       const gA = createGuitar(document.getElementById("gtrA"));
@@ -507,6 +444,7 @@
       // plug travel computed from the clock itself (seek-safe, no tween ordering issues)
       const ease = (t, t0, d) => { const k = Math.min(1, Math.max(0, (t - t0) / d)); return k * k; };
       window.__render3d = (t) => {
+        if (t < 3.25) box.render(t);
         if (t >= 5.45 && t < 16.65 && !(t > 7.6 && t < 10.0)) plugs.render({ xlr: ease(t, 6.12, 0.38), jack: ease(t, 10.4, 0.36), xlrOn: t >= 6.05, jackOn: t >= 10.3 });
         if (t >= 7.3 && t < 10.3) {
           const lv = level(t);
