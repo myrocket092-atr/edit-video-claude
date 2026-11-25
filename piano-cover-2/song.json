@@ -1,0 +1,22 @@
+{
+  "key": "D",
+  "duration": 88.6,
+  "count_in": [0.26, 0.85, 1.45, 2.03],
+  "chords": [
+    [2.62, "Dmaj7"], [6.05, "D7"], [7.89, "B7"], [9.66, "Em"], [13.07, "Gm"], [14.79, "A7"],
+    [16.49, "F#m"], [18.20, "Bm"], [19.92, "Em7"], [23.34, "Dmaj7"],
+    [33.62, "F#7"], [37.06, "Bm"], [40.47, "F#m"], [41.35, "Em7"], [42.19, "Dmaj7"], [43.96, "G"],
+    [45.63, "A7"], [47.35, "F#m"], [49.06, "Bm"], [50.78, "Em7"], [54.17, "A"], [57.61, "Dmaj7"],
+    [61.07, "F#7"], [64.51, "Bm"], [67.92, "A"], [69.61, "Dmaj7"], [72.21, "G"], [73.07, "Em7"],
+    [73.93, "A7"], [74.79, "F#m"], [76.49, "Bm"], [78.20, "Em"], [79.92, "A"], [81.64, "Dmaj7"]
+  ],
+  "lyrics": [
+    {"start": 2.62, "end": 6.0, "text": "Ingatkah...", "sub": "Kapan terakhir kita bicara", "k": [2.7, 4.6]},
+    {"start": 6.05, "end": 12.95, "text": "Kapan terakhir kita bicara", "sub": "Kapan terakhir kita saling", "k": [6.1, 11.6]},
+    {"start": 13.07, "end": 16.4, "text": "Kapan terakhir kita saling", "sub": "bertatap muka", "k": [13.1, 16.0]},
+    {"start": 16.49, "end": 19.85, "text": "bertatap muka", "sub": "berkata cinta", "k": [16.5, 19.0]},
+    {"start": 19.92, "end": 28.5, "text": "berkata cinta", "k": [20.0, 23.2]},
+    {"start": 29.0, "end": 33.4, "label": true, "text": "• • •"},
+    {"start": 33.62, "end": 87.4, "label": true, "text": "• • •"}
+  ]
+}
